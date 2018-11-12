@@ -18,7 +18,7 @@ email: x@huahang.im
 description: >- # this means to ignore newlines until "baseurl:"
   行走，思考，在路上
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://huahang.im" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://blog.huahang.im"
 twitter_username: huahang
 github_username:  huahang
 
