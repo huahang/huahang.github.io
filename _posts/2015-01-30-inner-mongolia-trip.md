@@ -3,6 +3,7 @@ title: 内蒙行：冬季草原和蒸汽火车
 layout: post
 date: '2015-01-30'
 tags: 游记 摄影
+permalink: /archives/258
 ---
 
 ![内蒙行01](https://pics.huahang.im/albums/2015/2015-01-30-内蒙行/内蒙行01.jpg)
