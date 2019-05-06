@@ -24,7 +24,7 @@ github_username:  huahang
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-minimal
+theme: minima
 plugins:
   - jekyll-admin
   - jekyll-compose
