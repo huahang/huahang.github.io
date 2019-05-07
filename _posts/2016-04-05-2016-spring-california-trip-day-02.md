@@ -2,7 +2,7 @@
 title: 加州游记第2天：硅谷
 layout: post
 date: '2016-04-05'
-permalink: "/album/2016-spring-california-trip-day-02"
+permalink: "/album/2016-spring-california-trip-day-02/"
 ---
 
 经过第一天的休整和倒时差，我们开始了第二天的行程。我们首先去了谷歌（Google）公司。
