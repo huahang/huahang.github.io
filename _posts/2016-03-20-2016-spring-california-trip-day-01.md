@@ -1,5 +1,6 @@
 ---
 title: 加州游记第1天：斯坦福周边
+author: 华航
 layout: post
 date: 2016-03-20
 ---

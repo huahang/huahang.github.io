@@ -1,5 +1,6 @@
 ---
 title: 内蒙行：冬季草原和蒸汽火车
+author: 华航
 layout: post
 date: 2015-01-30
 tags: 游记 摄影

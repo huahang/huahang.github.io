@@ -1,5 +1,6 @@
 ---
 title: 加州游记第2天：硅谷
+author: 华航
 layout: post
 date: '2016-04-05'
 permalink: "/album/2016-spring-california-trip-day-02/"
