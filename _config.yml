@@ -20,7 +20,6 @@ description: >- # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.huahang.im"
 google_analytics: UA-139710402-2
-twitter_username: huahang
 github_username: huahang
 instagram_username: huahang
 
