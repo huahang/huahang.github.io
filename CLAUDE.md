@@ -9,7 +9,7 @@ Jekyll-based personal blog (华航笔记) published at https://blog.huahang.im v
 ## Commands
 
 - `bundle install` — install gem dependencies.
-- `bundle exec jekyll serve` — run local dev server with live reload.
+- `bundle exec jekyll serve` — run local dev server (`--livereload` enables live reload).
 - `bundle exec jekyll build` — build the static site into `_site/`.
 - `bundle exec jekyll post "Title"` — scaffold a new post in `_posts/` (via jekyll-compose).
 - `bundle exec jekyll draft "Title"` / `bundle exec jekyll publish _drafts/...` — draft workflow.
@@ -19,7 +19,7 @@ Note: `_config.yml` is NOT auto-reloaded; restart `jekyll serve` after editing i
 ## Architecture notes
 
 - `_config.yml` pins `url: https://blog.huahang.im` and enables plugins: `jekyll-admin`, `jekyll-compose`, `jekyll-feed`, `jekyll-seo-tag`, `jekyll-sitemap`. Markdown engine is `kramdown`.
-- Gemfile pins `jekyll ~> 3.8.5` and `minima ~> 2.5.0` — this is an older Jekyll 3.x site, not GitHub Pages' bundled version (the `github-pages` gem is deliberately commented out). Keep version-sensitive syntax compatible with Jekyll 3.8.
+- Gemfile pins `jekyll ~> 3.9.5` and `minima ~> 2.5.1`, and also includes `kramdown-parser-gfm` plus `ffi` — this remains a Jekyll 3.x site, not GitHub Pages' bundled version (the `github-pages` gem is deliberately commented out). Keep version-sensitive syntax compatible with Jekyll 3.9.
 - Posts in `_posts/` follow `YYYY-MM-DD-slug.md` naming and use standard Jekyll front matter. Content is primarily in Chinese.
 - Resource links inside markdown (e.g. `![alt](/resources/...)`) should keep Chinese characters and spaces as raw UTF-8 — do NOT URL-encode them. Kramdown/Jekyll handle the encoding at render time, and raw paths are far easier for the author to read and edit.
 - No tests, linters, or CI configured. Recent commits are almost entirely content edits plus Dependabot bumps of transitive gems (addressable, rack).
