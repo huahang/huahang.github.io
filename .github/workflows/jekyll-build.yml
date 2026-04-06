@@ -50,7 +50,9 @@ jobs:
       - name: Install gems
         run: |
           set -euo pipefail
-          gem install bundler --no-document
+          # Bundler >= 2.5 requires Ruby >= 3.2, so on Ruby 2.7 we must pin
+          # to the last compatible release (2.4.22).
+          gem install bundler -v 2.4.22 --no-document
           rbenv rehash
           bundle config set --local path vendor/bundle
           bundle install --jobs 4 --retry 3
