@@ -27,11 +27,33 @@ jobs:
         with:
           lfs: true
 
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "2.7"
-          bundler-cache: true
+      - name: Install rbenv and ruby-build
+        run: |
+          set -euo pipefail
+          git clone --depth 1 https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
+          git clone --depth 1 https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
+          {
+            echo "$HOME/.rbenv/bin"
+            echo "$HOME/.rbenv/shims"
+          } >> "$GITHUB_PATH"
+          echo "RBENV_ROOT=$HOME/.rbenv" >> "$GITHUB_ENV"
+
+      - name: Install Ruby via rbenv
+        run: |
+          set -euo pipefail
+          ruby_version="$(cat .ruby-version)"
+          rbenv install --skip-existing "$ruby_version"
+          rbenv rehash
+          rbenv version
+          ruby --version
+
+      - name: Install gems
+        run: |
+          set -euo pipefail
+          gem install bundler --no-document
+          rbenv rehash
+          bundle config set --local path vendor/bundle
+          bundle install --jobs 4 --retry 3
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --trace
