@@ -33,6 +33,13 @@ gem "kramdown-parser-gfm", "~> 1.1"
 # Pin ffi to the last release that still supports Ruby 2.6 (newer ffi requires Ruby >= 3).
 gem "ffi", "~> 1.16.3"
 
+# jekyll-admin 0.11.1 monkey-patches `Rack::Handler::WEBrick`, which was removed
+# in Rack 3.x. Pin Rack to 2.x (and Sinatra to 3.x, since Sinatra 4 hard-requires
+# Rack 3) so `bundle exec jekyll serve` keeps working.
+gem "rack", "~> 2.2"
+gem "sinatra", "~> 3.2"
+gem "sinatra-contrib", "~> 3.2"
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
