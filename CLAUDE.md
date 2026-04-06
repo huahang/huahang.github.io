@@ -21,6 +21,7 @@ Note: `_config.yml` is NOT auto-reloaded; restart `jekyll serve` after editing i
 - `_config.yml` pins `url: https://blog.huahang.im` and enables plugins: `jekyll-admin`, `jekyll-compose`, `jekyll-feed`, `jekyll-seo-tag`, `jekyll-sitemap`. Markdown engine is `kramdown`.
 - Gemfile pins `jekyll ~> 3.8.5` and `minima ~> 2.5.0` — this is an older Jekyll 3.x site, not GitHub Pages' bundled version (the `github-pages` gem is deliberately commented out). Keep version-sensitive syntax compatible with Jekyll 3.8.
 - Posts in `_posts/` follow `YYYY-MM-DD-slug.md` naming and use standard Jekyll front matter. Content is primarily in Chinese.
+- Resource links inside markdown (e.g. `![alt](/resources/...)`) should keep Chinese characters and spaces as raw UTF-8 — do NOT URL-encode them. Kramdown/Jekyll handle the encoding at render time, and raw paths are far easier for the author to read and edit.
 - No tests, linters, or CI configured. Recent commits are almost entirely content edits plus Dependabot bumps of transitive gems (addressable, rack).
 
 ## Git conventions
