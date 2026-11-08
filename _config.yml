@@ -33,10 +33,17 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+# Only emit CSS source maps for local development builds; production
+# (JEKYLL_ENV=production) output stays free of main.css.map.
+sass:
+  sourcemap: development
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
+  - AGENTS.md
+  - CLAUDE.md
   - Gemfile
   - Gemfile.lock
   - node_modules
