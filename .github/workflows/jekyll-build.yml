@@ -27,35 +27,18 @@ jobs:
         with:
           lfs: true
 
-      - name: Install rbenv and ruby-build
-        run: |
-          set -euo pipefail
-          git clone --depth 1 https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
-          git clone --depth 1 https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
-          {
-            echo "$HOME/.rbenv/bin"
-            echo "$HOME/.rbenv/shims"
-          } >> "$GITHUB_PATH"
-          echo "RBENV_ROOT=$HOME/.rbenv" >> "$GITHUB_ENV"
-
-      - name: Install Ruby via rbenv
-        run: |
-          set -euo pipefail
-          ruby_version="$(cat .ruby-version)"
-          rbenv install --skip-existing "$ruby_version"
-          rbenv rehash
-          rbenv version
-          ruby --version
-
-      - name: Install gems
-        run: |
-          set -euo pipefail
+      # Download a prebuilt Ruby instead of compiling it with rbenv/ruby-build.
+      # Compiling Ruby 2.7 also needs OpenSSL 1.1 sources from openssl.org,
+      # which made the build fail whenever that site was down.
+      - name: Set up Ruby and install gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
           # Bundler >= 2.5 requires Ruby >= 3.2, so on Ruby 2.7 we must pin
           # to the last compatible release (2.4.22).
-          gem install bundler -v 2.4.22 --no-document
-          rbenv rehash
-          bundle config set --local path vendor/bundle
-          bundle install --jobs 4 --retry 3
+          bundler: "2.4.22"
+          # Run `bundle install` and cache the gems in vendor/bundle.
+          bundler-cache: true
 
       - name: Build with Jekyll
         run: bundle exec jekyll build --trace
